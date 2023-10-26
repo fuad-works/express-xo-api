@@ -124,6 +124,21 @@ function findBestMove() {
     return bestMove;
 }
 
+app.get('/clearBoard', (req, res) => {
+    
+    gameState = [
+        ['', '', ''],
+        ['', '', ''],
+        ['', '', '']
+    ];
+
+    res.json({ message: 'Move successful', gameState });
+});
+
+app.get('/getBoard', (req, res) => {
+    res.json({ message: 'Move successful', gameState });
+});
+
 // Endpoint to make a move
 app.post('/makeMove', (req, res) => {
     const { player, row, col } = req.body;
